@@ -106,7 +106,38 @@ li {
 /*=================================
   Header styling starts here
 =================================*/
-header { 
+
+.hamburger { 
+  width: 40px;
+  height: 40px;
+  display: none;
+  position: absolute;
+  right: 7%;
+  top: 20%;
+}
+
+.hamburger::after {
+  content: '\f0c9';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+  font-size: 35px;
+  font-family: fontAwesome;
+  color: #fff;
+}
+
+.hamburger.active::after { content: '\f00d'; }
+
+.hamburger span {
+  text-indent: -99999px;
+  float: left;
+}
+
+header {
+  width: 100%; 
   position: relative;
   border-bottom: 10px solid #046296;
 }
@@ -128,6 +159,13 @@ nav {
   padding: 22px 0;
   background: rgba(0,0,0,.5);
 }
+
+header.active { 
+  position: fixed;
+  z-index: 10;
+}
+header.active .logo { display: none; }
+header.active figure { display: none; }
 
 .logo a {
   margin-top: 50px;
@@ -158,7 +196,8 @@ nav {
   position: relative;
   font-size: 23px; 
 }
-.menu-item a:hover { color: #A2C1F0; }
+.menu-item a:hover,
+.menu-item a.active { color: #A2C1F0; }
 
 .menu-item a::after {
   content: '';
@@ -173,7 +212,8 @@ nav {
   transition: ease-in-out .4s;
 }
 
-.menu-item a:hover::after { transform: scaleX(1); }
+.menu-item a:hover::after, 
+.menu-item a.active::after { transform: scaleX(1); }
 
 /*=================================
   Header styling ends here
@@ -182,6 +222,7 @@ nav {
 /*=================================
   main styling starts here
 =================================*/
+/* welcome section start */
 
 .welcome { color: #666F78; }
 .welcome .wrapper { padding: 65px 0 25px; }
@@ -204,12 +245,32 @@ nav {
   flex-wrap: wrap;
 }
 
-.image-gallery figure { margin-bottom: 10px; }
+.image-gallery figure { 
+  width: 100%;
+  margin-bottom: 10px;
+  transition: ease-in-out .6s;
+}
 
-.image-gallery figcaption {
-  padding: 15px 0;
+.img-item:hover figure {
+  transform: scale(1.4);
+}
+
+.img-item { 
+  margin-bottom: 15px; 
+  overflow: hidden;
+  transition: .5s;
+ }
+
+.img-item:hover { 
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,.7); 
+} 
+
+.img-item a figcaption {
+  padding-top: 15px;
   text-align: center;
   font-size: 22px;
+  color: #666F78;
 }
 
 .filter-control {
