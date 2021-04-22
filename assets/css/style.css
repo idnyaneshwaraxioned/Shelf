@@ -366,19 +366,35 @@ footer .wrapper {
 }
 
 
-
-
-
-
-
  /*=================================
   footer styling ends here
 =================================*/ 
 
 /*media query starts*/
 /*media query for 995px starts here*/
-@media only screen and (max-width: 995px) {
+@media only screen and (max-width: 1204px) {
 
-
+.wrapper { width: 85%; }
+.image-gallery { width: 100%; }
+.img-item { width: 50%; }
 
 }  
+
+@media only screen and (max-width: 995px) {
+
+.hamburger { 
+  display: block;
+  z-index: 10;
+}
+
+.menu { 
+  position: absolute;
+  width: 100%;
+  flex-direction: column;
+  z-index: 2;
+  background: rgba(0,0,0,.5);
+ }
+
+.menu-item { padding: 35px; }
+
+}
