@@ -9,8 +9,8 @@ function hamburger() {
 	let menu = document.querySelector('.menu');
 
 	toggleMenu.addEventListener('click',function(){
-		toggleMenu.classList.add('active');
-		menu.classList.add('active');
+		toggleMenu.classList.toggle('active');
+		menu.classList.toggle('active');
 	})
 }
 hamburger()
