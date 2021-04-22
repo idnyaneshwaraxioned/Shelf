@@ -136,7 +136,8 @@ li {
   float: left;
 }
 
-header { 
+header {
+  width: 100%; 
   position: relative;
   border-bottom: 10px solid #046296;
 }
@@ -158,6 +159,13 @@ nav {
   padding: 22px 0;
   background: rgba(0,0,0,.5);
 }
+
+header.active { 
+  position: fixed;
+  z-index: 10;
+}
+header.active .logo { display: none; }
+header.active figure { display: none; }
 
 .logo a {
   margin-top: 50px;
