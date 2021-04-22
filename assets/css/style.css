@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 @charset "utf-8";
 /* ==========================================================================
    1. CSS Reset Code
@@ -83,7 +90,8 @@ sub { bottom: -.25em; }
 
 /*for all*/
 body {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: sans-serif;
 }
 
@@ -144,13 +152,22 @@ header {
 
 header .wrapper {
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
 }
 
 header a { color: #fff; }
@@ -182,13 +199,18 @@ header.active figure { display: none; }
 }
 
 .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .menu-item { 
   text-align: center;
-  flex-basis: 15%;
+  -ms-flex-preferred-size: 15%;
+      flex-basis: 15%;
   text-align: center; 
 }
 
@@ -207,13 +229,19 @@ header.active figure { display: none; }
   position: absolute;
   left: 0;
   bottom: 0;
-  transform: scale(0);
-  transform-origin: left;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  -webkit-transform-origin: left;
+      -ms-transform-origin: left;
+          transform-origin: left;
+  -webkit-transition: ease-in-out .4s;
+  -o-transition: ease-in-out .4s;
   transition: ease-in-out .4s;
 }
 
 .menu-item a:hover::after, 
-.menu-item a.active::after { transform: scaleX(1); }
+.menu-item a.active::after { -webkit-transform: scaleX(1); -ms-transform: scaleX(1); transform: scaleX(1); }
 
 /*=================================
   Header styling ends here
@@ -240,30 +268,42 @@ header.active figure { display: none; }
 
 .image-gallery {
   padding: 40px 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .image-gallery figure { 
   width: 100%;
   margin-bottom: 10px;
+  -webkit-transition: ease-in-out .6s;
+  -o-transition: ease-in-out .6s;
   transition: ease-in-out .6s;
 }
 
 .img-item:hover figure {
-  transform: scale(1.4);
+  -webkit-transform: scale(1.4);
+      -ms-transform: scale(1.4);
+          transform: scale(1.4);
 }
 
 .img-item { 
   margin-bottom: 15px; 
   overflow: hidden;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
   transition: .5s;
  }
 
 .img-item:hover { 
   border-radius: 20px;
-  box-shadow: 0 0 15px rgba(0,0,0,.7); 
+  -webkit-box-shadow: 0 0 15px rgba(0,0,0,.7);
+          box-shadow: 0 0 15px rgba(0,0,0,.7); 
 } 
 
 .img-item a figcaption {
@@ -276,8 +316,12 @@ header.active figure { display: none; }
 .filter-control {
   width: 40%;
   margin: 39px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .filter-btn {
@@ -302,9 +346,15 @@ header.active figure { display: none; }
 /* help section start */
 .help .wrapper {
   padding: 40px 0 27px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: #fff;
   background: #076599;
 }
@@ -336,6 +386,8 @@ header.active figure { display: none; }
   margin: 25px 0;
   font-size: 18px;
   color: #fff;
+  -webkit-transition: ease .4s;
+  -o-transition: ease .4s;
   transition: ease .4s;
 }  
 
@@ -376,25 +428,68 @@ footer .wrapper {
 
 .wrapper { width: 85%; }
 .image-gallery { width: 100%; }
-.img-item { width: 50%; }
+
+.menu-item a:hover,
+.menu-item a.active { color: #EDEDED; }
+
+.menu-item a:hover::after, 
+.menu-item a.active::after { -webkit-transform: scale(0); -ms-transform: scale(0); transform: scale(0); }
+
+.img-item:hover { 
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none; 
+} 
 
 }  
 
 @media only screen and (max-width: 995px) {
 
+header .wrapper { width: 100%; }
+
 .hamburger { 
   display: block;
   z-index: 10;
 }
+nav { background-color: transparent; }
 
 .menu { 
   position: absolute;
   width: 100%;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   z-index: 2;
   background: rgba(0,0,0,.5);
+  -webkit-transform: scaleY(0);
+      -ms-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transform-origin: top;
+      -ms-transform-origin: top;
+          transform-origin: top;
+  -webkit-transition: ease-in-out .4s;
+  -o-transition: ease-in-out .4s;
+  transition: ease-in-out .4s;
  }
+
+.menu.active { -webkit-transform: scaleY(1); -ms-transform: scaleY(1); transform: scaleY(1); }
 
 .menu-item { padding: 35px; }
 
+.image-gallery { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+
+.img-item { margin: 0 auto; }
+
+.help .wrapper { 
+  -webkit-box-orient: vertical; 
+  -webkit-box-direction: normal; 
+      -ms-flex-direction: column; 
+          flex-direction: column;
+  text-align: center;
+}
+
+.help figure { width: 50%; }
+
+footer .wrapper { font-size: 15px; }
 }
