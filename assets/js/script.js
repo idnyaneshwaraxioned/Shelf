@@ -2,6 +2,23 @@
 
 */
 
+
+// Humburger start
+function hamburger() {
+	let toggleMenu = document.querySelector('.hamburger');
+	let menu = document.querySelector('.menu');
+
+	toggleMenu.addEventListener('click',function(){
+		toggleMenu.classList.add('active');
+		menu.classList.add('active');
+	})
+}
+hamburger()
+
+// Humburger end
+
+// Sticky navbar start
+
 function stickynav() {
 	let headerNav = document.querySelector('header');
 	// console.log(headerNav);
@@ -17,8 +34,9 @@ function stickynav() {
 };
 stickynav()
 
+// Sticky navbar end
 
-
+// Pagination start
 function pagination() {
 
 	let filterBtn = document.querySelectorAll('.filter-control li');
@@ -39,9 +57,9 @@ function pagination() {
 			let btnatr = val.getAttribute('data-number');
 			imgitem.forEach(function (img) {
 				let imgstr = img.getAttribute('data-att')
-				if(imgstr===btnatr){
+				if (imgstr === btnatr) {
 					img.style.display = 'block';
-				} else{
+				} else {
 					img.style.display = "none";
 				}
 			});
@@ -50,7 +68,7 @@ function pagination() {
 
 }
 pagination();
-
+// Pagination end
 
 
 
