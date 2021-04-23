@@ -8,7 +8,7 @@ function hamburger() {
 	let toggleMenu = document.querySelector('.hamburger');
 	let menu = document.querySelector('.menu');
 
-	toggleMenu.addEventListener('click',function(){
+	toggleMenu.addEventListener('click', function () {
 		toggleMenu.classList.toggle('active');
 		menu.classList.toggle('active');
 	})
@@ -41,6 +41,8 @@ function pagination() {
 
 	let filterBtn = document.querySelectorAll('.filter-control li');
 	let imgitem = document.querySelectorAll('.img-item');
+	let maxIndex = 8;
+	let index = 1;
 
 	filterBtn.forEach(function (val) {
 		val.addEventListener('click', function () {
@@ -66,8 +68,19 @@ function pagination() {
 		})
 	});
 
+
+		imgitem.forEach(function (img, imgIndex) {
+			img.style.display = 'none';
+
+			if (imgIndex >= (index * maxIndex) - maxIndex && imgIndex < maxIndex) {
+				img.style.display = 'block';
+			}
+		});
+
+
 }
 pagination();
+
 // Pagination end
 
 
